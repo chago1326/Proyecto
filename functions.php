@@ -1,7 +1,7 @@
 <?php
 
 function getConnection() {
-  $connection = new mysqli('localhost', 'root', '', 'estudiantes');
+  $connection = new mysqli('localhost', 'root', '', 'proyecto');
   if ($connection->connect_errno) {
     printf("Connect failed: %s\n", $connection->connect_error);
     die;
@@ -10,22 +10,13 @@ function getConnection() {
 }
 
 
-function sendScheduleEmail($recipient, $subject) {
-
-  $output = '';
-  $retval = '';
-  exec("/home/ubuntu/user/example2.php $recipient $subject", $output, $retval);
 
 
-  var_dump($output);
-
-}
-
-function saveStudent($estudiante) {
+function registrarUsuario($usuario) {
   $conn = getConnection();
-  $sql = "INSERT INTO usuarios( `cedula`, `nombre`, `apellido`,`email`, `rol`, `contrasenna`)
-          VALUES ('{$estudiante['cedula']}', '{$estudiante['nombre']},'{$estudiante['apellido']}', 
-          '{$estudiante['email']}', '{$estudiante['rol']},'{$estudiante['contrasenna']}', '')";
+  $sql = "INSERT INTO usuarios( `id_cedula`,`email`, `nombre`, `apellido`,`contrasenna`, `rol_id`)
+          VALUES ('{$usuario['id_cedula']}', '{$usuario['email']},'{$usuario['nombre']}', 
+          '{$usuario['apellido']}', '{$usuario['contrasenna']},'{$usuario['rol_id']}', '')";
   $conn->query($sql);
 
   if ($conn->connect_errno) {
@@ -54,7 +45,7 @@ function getStudents(){
 
 function authenticate($username, $password){
   $conn = getConnection();
-  $sql = "SELECT * FROM usuarios WHERE `cedula` = '$username' AND `contrasenna` = '$password'";
+  $sql = "SELECT * FROM usuarios WHERE `id_cedula` = '$username' AND `contrasenna` = '$password'";
   $result = $conn->query($sql);
 
   if ($conn->connect_errno) {
@@ -68,7 +59,7 @@ function authenticate($username, $password){
 
 function deleteStudent($id){
   $conn = getConnection();
-  $sql = "DELETE FROM usuarios WHERE cedula = $id";
+  $sql = "DELETE FROM usuarios WHERE id_cedula = $id";
   $result = $conn->query($sql);
 
   if ($conn->connect_errno) {

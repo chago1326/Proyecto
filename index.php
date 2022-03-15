@@ -31,7 +31,7 @@
 
 
 
-  <title>Document</title>
+  <title>Inicia sesión</title>
 </head>
 <body>
 
@@ -39,7 +39,7 @@
     <div class="msg">
       <?php echo $message; ?>
     </div>
-    <h1>Login</h1>
+    <h1>Inicia sesión</h1>
     <form action="login.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
@@ -51,6 +51,7 @@
       </div>
 
       <button type="submit" id="liveAlertBtn" class="btn btn-primary">Login</button>
+      <a href="registro.php"><p>¿No tengo cuenta?</p></a>
     </form>
 </div>
 
