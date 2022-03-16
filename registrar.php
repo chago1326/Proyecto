@@ -14,7 +14,7 @@ $conn=getConnection();
   $rol=$_POST['tipo_usua'];
 
   $sql= "INSERT INTO usuarios(`id_cedula`, `email`, `nombre`, `apellido`, `contrasenna`, `rol_id`)
-  Values ('[ $id_cedula-1]','[$email-2]','[$nombre-3]','[$apellido-4]','[$contrasenna-5]','[$rol-6]')";
+  Values (' $id_cedula','$email','$nombre','$apellido','$contrasenna','$rol')";
 
   $query= mysqli_query($conn,$sql);
 

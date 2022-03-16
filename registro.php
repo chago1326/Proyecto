@@ -17,7 +17,7 @@
   <form action="registrar.php" method="Post" class="formulario" role="form">
     <section class="form-register">
         <h4>Formulario Registro</h4>
-        <input class="controls" type="number" name="id_cedula" id="id_cedula" placeholder="Ingrese su cedula(que va a ser su usuario)">
+        <input class="controls" type="text" name="id_cedula" id="id_cedula" placeholder="Ingrese su cedula(que va a ser su usuario)">
         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre">
         <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido">
         <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo">
