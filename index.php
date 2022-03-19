@@ -43,11 +43,11 @@
     <form action="login.php" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
-        <input type="text" class="form-control" id="" name="username" placeholder="Su usuario">
+        <input type="text" class="form-control" id="" name="username" placeholder="Su usuario" required>
       </div>
       <div class="form-group">
         <label class="sr-only" for="">Password</label>
-        <input type="password" class="form-control" id="" name="password" placeholder="Su contraseña">
+        <input type="password" class="form-control" id="" name="password" placeholder="Su contraseña" required>
       </div>
 
       <button type="submit" id="liveAlertBtn" class="btn btn-primary">Login</button>

@@ -13,7 +13,7 @@ $sql="UPDATE categorias SET categoria_nom='$nombres' WHERE id='$id_cate'";
      $message = "Actulizado correctamente!!";
 
  }else{
-     header('Location: actualizar_categoria.php');
+     header('Location: actualizarCategoria.php');
      $message = 'Hubo un error!';
      
  }

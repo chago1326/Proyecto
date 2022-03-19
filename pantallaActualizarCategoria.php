@@ -30,13 +30,13 @@ $id_categorias = $_GET['id'];
      </head>
      <body>
                  <div class="container mt-5">
-                     <form action="actualizar_categoria.php" method="POST">
+                     <form action="actualizarCategoria.php" method="POST">
                      
                                  <input type="hidden" name="id" value="<?php echo $row['id']  ?>">
                                  <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres" value="<?php echo $row['categoria_nom']  ?>">
                                 
                                  
-                             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
+                             <input type="submit" class="btn btn-primary btn-block" value="Guardar Cambios">
                      </form>
                      
                  </div>

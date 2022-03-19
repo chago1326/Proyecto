@@ -2,7 +2,8 @@
     require("functions.php");
     $con= getConnection();
 
-    $sql="SELECT * FROM categorias";
+    $sql="SELECT id_nue_noticas,nombre_noti,url_rss,categoria_nom,id_usuario FROM `nuevas_noticias`,`usuarios`,`categorias` 
+    WHERE nuevas_noticias.id_usuario = usuarios.id_cedula and nuevas_noticias.categoria_id = categorias.id;";
     $query=mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="estiloCategoria">
+        <link rel="stylesheet" href="estiloCrudNoticias">
 
       
 
@@ -24,27 +25,15 @@
     <body>
         
             <div class=" container mt-5 ">
-                    <div class="row"> 
-                        
-                        <div class="col-md-3">
-                            <h1>Ingrese la informacion de las categorias</h1>
-                                <form action="ingresarCategoria.php" method="POST">
-                                    <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres" required>
-                                   
-                                    
-                                    <input type="submit" class="btn btn-primary" value="Ingresar" >
-                                </form>
-                        </div>
-
                         <div class="col-md-8">
                             <table class="table" >
                                 <thead  class="table-success table-striped" >
                                     <tr>
                                         <th hidden>Id</th>
                                         <th>Nombres</th>
-                                        
-                                        <th></th>
-                                        <th></th>
+                                        <th hidden>Rss</th>
+                                        <th>Categoria</th>
+                                        <th hidden>Usario</th>
                                     </tr>
                                 </thead>
 
@@ -53,11 +42,15 @@
                                             while($row=mysqli_fetch_array($query)){
                                         ?>
                                             <tr>
-                                                <th hidden><?php  echo $row['id']?></th>
+                                                <th hidden><?php  echo $row['id_nue_noticas']?></th>
+                                                <th><?php  echo $row['nombre_noti']?></th>
+                                                <th hidden><?php  echo $row['url_rss']?></th>
                                                 <th><?php  echo $row['categoria_nom']?></th>
+                                                <th hidden><?php  echo $row['id_usuario']?></th>
+                                               
                                         
-                                                <th><a href="pantallaActualizarCategoria.php?id=<?php echo $row['id'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="eliminarCategoria.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><a href="pantallaActualizarCategoria.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="eliminarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }
