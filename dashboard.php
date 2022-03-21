@@ -8,18 +8,25 @@
   ?>
   
   <title>Menu principal</title>
-  <h1> Bienvenido <?php echo $user['nombre']; echo $user['apellido'] ?> </h1>
-  <a href="logout.php">Logout</a>
+  <h1> Bienvenido <?php echo $user['nombre']; ?> </h1>
 
+  <a href="logout.php">Logout</a>
+  
   <nav class="nav">
-    <?php  if($user['rol'] === 'Administrador') { ?>
+    <?php  if($user['tipo_rol'] === 'Administrador') { ?>
       <li class="nav-item">
-        <a class="nav-link active" href="matricula.php">Matricular</a>
+        <a class="nav-link active" href="categoria.php">Mantenimiento de categorias</a>
+        
       </li>
-    <?php } ?>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Materias</a>
-    </li>
+    
+      
+    <?php  } elseif($user['tipo_rol'] === 'Usuario'){?>
+       <li class="nav-item">
+       <a class="nav-link active" href="pantallaCrudNoticias.php">Tus Noticias</a>
+       <a class="nav-link active" href="pantallaIngresoNoticias.php">Tus Noticias</a>
+        </li>
+        <?php  } ?>
+    
   </nav>
 
 

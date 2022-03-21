@@ -15,7 +15,6 @@ $conn=getConnection();
 
   $sql= "INSERT INTO usuarios(`id_cedula`, `email`, `nombre`, `apellido`, `contrasenna`, `rol_id`)
   Values (' $id_cedula','$email','$nombre','$apellido','$contrasenna','$rol')";
-
   $query= mysqli_query($conn,$sql);
 
 if($query){

@@ -1,9 +1,10 @@
 <?php 
     require("functions.php");
     $con= getConnection();
+    $user=['id_cedula'];
 
     $sql="SELECT id_nue_noticas,nombre_noti,url_rss,categoria_nom,id_usuario FROM `nuevas_noticias`,`usuarios`,`categorias` 
-    WHERE nuevas_noticias.id_usuario = usuarios.id_cedula and nuevas_noticias.categoria_id = categorias.id;";
+    WHERE nuevas_noticias.id_usuario = usuarios.id_cedula and nuevas_noticias.categoria_id = categorias.id and id_usuario = '$user'";
     $query=mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
@@ -13,9 +14,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/style.css" rel="stylesheet">
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="estiloCrudNoticias">
+        <link rel="stylesheet" href="estiloCrudNoticias.css">
 
       
 
@@ -49,7 +50,7 @@
                                                 <th hidden><?php  echo $row['id_usuario']?></th>
                                                
                                         
-                                                <th><a href="pantallaActualizarCategoria.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="pantallaActulizarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-info">Editar</a></th>
                                                 <th><a href="eliminarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 

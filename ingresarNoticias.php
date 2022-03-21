@@ -7,7 +7,7 @@ $nombre=$_POST['nombre'];
 $rss =$_POST['rss'];
 $categorias =$_POST['categorias'];
 // tengo que capturar el usurario
-$usuario = "207880338";
+$usuario = $_POST['id_cedula'];
 
 
 

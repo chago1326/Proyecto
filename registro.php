@@ -27,7 +27,7 @@
                     <input type="radio" name="tipo_usua" id="Administrador" value="Administrador">
                     <label for="Administrador">Administrador</label>
 
-                    <input type="radio" name="tipo_usua" id="Usuario" value="Usario">
+                    <input type="radio" name="tipo_usua" id="Usuario" value="Usuario">
                     <label for="Usuario">Usuario</label>
 
                 </div>
