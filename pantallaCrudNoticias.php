@@ -1,7 +1,13 @@
 <?php 
     require("functions.php");
     $con= getConnection();
-    $user=['id_cedula'];
+    session_start();
+
+  $user = $_SESSION['user'];
+  if (!$user) {
+    header('Location: index.php');
+  }
+    $user = $user['id_cedula'];
 
     $sql="SELECT id_nue_noticas,nombre_noti,url_rss,categoria_nom,id_usuario FROM `nuevas_noticias`,`usuarios`,`categorias` 
     WHERE nuevas_noticias.id_usuario = usuarios.id_cedula and nuevas_noticias.categoria_id = categorias.id and id_usuario = '$user'";
@@ -24,6 +30,19 @@
 
     
     <body>
+    <div class="dropdown">
+        <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
+            <?php echo $user['nombre']; ?>
+        </button>
+
+        <div class="dropdown-menu " >
+            <a class="dropdown-item" href="pantallaCrudNoticias">Mantenimiento de noticias</a>
+            <a class="dropdown-item" href="#">Ingreso de una nueva noticia</a>
+            <a class="dropdown-item" href="dashboard.php">Mis noticias</a>
+            <a class="dropdown-item" href="logout.php">Logout</a>
+           
+        </div>
+    </div>
         
             <div class=" container mt-5 ">
                         <div class="col-md-8">

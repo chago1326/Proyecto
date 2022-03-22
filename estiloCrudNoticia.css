@@ -7,5 +7,9 @@ h1{
     font: oblique bold 100%cursive;
 
 }
+.dropdown{
+    text-align: right;
+    margin-right: 10%;
+}
 
 

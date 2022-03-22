@@ -1,7 +1,7 @@
 <?php
   session_start();
   if ($_SESSION && $_SESSION['user']){
-  //Tengo que quitar el dashboart
+ 
     header('Location: dashboard.php');
   }
 

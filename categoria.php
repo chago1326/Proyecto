@@ -1,4 +1,10 @@
 <?php 
+    session_start();
+
+    $user = $_SESSION['user'];
+    if (!$user) {
+    header('Location: index.php');
+    }
     require("functions.php");
     $con= getConnection();
 
@@ -22,7 +28,17 @@
 
     
     <body>
-        
+    <a class="dropdown-item" href="logout.php">Logout</a>
+    <div class="dropdown">
+        <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
+           Administrador
+        </button>
+
+        <div class="dropdown-menu " >
+            <a class="dropdown-item" href="logout.php">Logout</a>
+           
+        </div>
+    </div>
             <div class=" container mt-5 ">
                     <div class="row"> 
                         

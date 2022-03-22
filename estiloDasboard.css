@@ -1,0 +1,22 @@
+
+h1{
+    text-align:center;
+     
+}
+
+.dropdown{
+    text-align: right;
+    margin-right: 10%;
+}
+
+.imagen{
+    width: 150px;
+    height: 100px;
+    
+}
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }

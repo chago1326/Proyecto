@@ -1,4 +1,11 @@
 <?php
+
+    session_start();
+
+    $user = $_SESSION['user'];
+    if (!$user) {
+    header('Location: index.php');
+    }
  require('functions.php');
  $conn=getConnection();
 $id_noticias = $_GET['id'];

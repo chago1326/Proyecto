@@ -1,7 +1,13 @@
 <?php
+    session_start();
+
+    $user = $_SESSION['user'];
+    if (!$user) {
+    header('Location: index.php');
+    }
  require('functions.php');
  $conn=getConnection();
-$id_categorias = $_GET['id'];
+ $id_categorias = $_GET['id'];
 
  $sql="SELECT * FROM categorias WHERE id='$id_categorias'";
  $query=mysqli_query($conn,$sql);
@@ -21,6 +27,16 @@ $id_categorias = $_GET['id'];
              
      </head>
      <body>
+     <div class="dropdown">
+        <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
+           Administrador
+        </button>
+
+        <div class="dropdown-menu " >
+        <a class="dropdown-item" href="categoria.php">Logout</a>
+            <a class="dropdown-item" href="logout.php">Logout</a>
+           
+        </div>
                  <div class="container mt-5">
                      <form action="actualizarCategoria.php" method="POST">
                      
