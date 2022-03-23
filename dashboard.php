@@ -1,4 +1,5 @@
 <?php
+require('prueba.php');
   session_start();
 
   $user = $_SESSION['user'];
@@ -24,42 +25,44 @@
 </head>
 
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <div class='imagen'>
-        <img src="https://uploads.turbologo.com/uploads/design/hq_preview_image/1475872/draw_svg20210702-6381-1bvxca.svg.png"
-            class="img-thumbnail" alt="Eniun">
-    </div>
 
 
 
 
     <?php  if($user['tipo_rol'] === 'Administrador') { ?>
 
-      <?php header('Location:categoria.php'); ?>
-    
+    <?php header('Location:categoria.php'); ?>
+
 
 
     <?php  } elseif($user['tipo_rol'] === 'Usuario'){?>
-      <a class="dropdown-item" href="logout.php">Logout</a>
 
-    <div class="dropdown">
-        <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
-            <?php echo $user['nombre']; ?>
-        </button>
 
-        <div class="dropdown-menu " >
-            <a class="dropdown-item" href="pantallaCrudNoticias">Mantenimiento de noticias</a>
-            <a class="dropdown-item" href="#">Ingreso de una nueva noticia</a>
-            <a class="dropdown-item" href="dashboard.php">Mis noticias</a>
-            <a class="dropdown-item" href="logout.php">Logout</a>
-           
+    <br>
+    <br>
+
+   
+        <div class="dropdown">
+
+            <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
+                <?php echo $user['nombre']; ?>
+            </button>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="pantallaCrudNoticias.php">Mantenimiento de noticias</a>
+                <a class="dropdown-item" href="pantallaIngresoNoticias.php">Ingreso de una nueva noticia</a>
+                <a class="dropdown-item" href="dashboard.php">Mis noticias</a>
+                <a class="dropdown-item" href="logout.php">Logout</a>
+
+            </div>
         </div>
-    </div>
+
+
 
     <h1> Tu portada de noticias única </h1>
 
-    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark main-nav">
+    <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark main-nav ">
         <div class="container">
             <ul class="nav navbar-nav mx-auto">
                 <li class="nav-item active">
@@ -88,7 +91,13 @@
             </ul>
         </div>
     </nav>
-    <?php  } ?>
+    <input hidden type="text" class="form-control mb-3" name="idCedula" 
+                value="<?php echo $user['id_cedula']; ?>">
+    <?php 
+    
+    $usuario = $_REQUEST['idCedula'];
+    mostrar($usuario);
+ } ?>
 
 
 </body>

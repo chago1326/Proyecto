@@ -10,34 +10,30 @@
 </head>
 
 <body>
-  <form action="registrar.php" method="Post" class="formulario" role="form">
-    <section class="form-register">
-        <h4>Formulario Registro</h4>
-        <input class="controls" type="text" name="id_cedula" id="id_cedula" placeholder="Ingrese su cedula(que va a ser su usuario)" required>
-        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required>
-        <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido" required>
-        <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo" required>
-        <input class="controls" type="password" name="contrasenna" id="contrasenna" placeholder="Ingrese su Contraseña" required>
+    <form action="registrar.php" method="Post" class="formulario" role="form">
+        <section class="form-register">
+            <h4>Formulario Registro</h4>
+            <input class="controls" type="number" name="id_cedula" id="id_cedula"
+                placeholder="Ingrese su cedula(que va a ser su usuario)" required>
+            <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" required>
+            <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido"
+                required>
+            <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo" required>
+            <input class="controls" type="password" name="contrasenna" id="contrasenna"
+                placeholder="Ingrese su Contraseña" required>
 
-        <div class="wrap">
-            
-                <div class="radio_bu">
-                    <h2>Tipo de Usuario</h2>
+            <div class="wrap">
+                <select name="tipoUsua">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario" selected>Usuario</option>
+                </select>
 
-                    <input type="radio" name="tipo_usua" id="Administrador" value="Administrador">
-                    <label for="Administrador">Administrador</label>
 
-                    <input type="radio" name="tipo_usua" id="Usuario" value="Usuario">
-                    <label for="Usuario">Usuario</label>
+                <button class="botons" type="submit" id="liveAlertBtn">Registrar</button>
 
-                </div>
-
-            
-            <button class="botons" type="submit" id="liveAlertBtn">Registrar</button>
-            
-            <p><a href="index.php">¿Ya tengo Cuenta?</a></p>
-    </section>
-   </form>
+                <p><a href="index.php">¿Ya tengo Cuenta?</a></p>
+        </section>
+    </form>
 
 </body>
 

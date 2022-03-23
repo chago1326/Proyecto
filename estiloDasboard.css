@@ -4,14 +4,17 @@ h1{
      
 }
 
-.dropdown{
-    text-align: right;
-    margin-right: 10%;
+
+.dropdown:hover .dropdown-menu{
+   display: block;
+   
 }
 
 .imagen{
     width: 150px;
     height: 100px;
+    text-align: right;
+    margin-right: 10%;
     
 }
 
@@ -20,3 +23,5 @@ h1{
     left: 50%;
     transform: translatex(-50%);
   }
+
+  

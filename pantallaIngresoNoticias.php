@@ -31,7 +31,7 @@ session_start();
 
         <div class="dropdown-menu " >
             <a class="dropdown-item" href="pantallaCrudNoticias">Mantenimiento de noticias</a>
-            <a class="dropdown-item" href="#">Ingreso de una nueva noticia</a>
+            <a class="dropdown-item" href="pantallaIngresoNoticias.php">Ingreso de una nueva noticia</a>
             <a class="dropdown-item" href="dashboard.php">Mis noticias</a>
             <a class="dropdown-item" href="logout.php">Logout</a>
            

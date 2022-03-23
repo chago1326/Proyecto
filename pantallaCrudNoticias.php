@@ -15,70 +15,78 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Crud categorias</title>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="stylesheet" href="estiloCrudNoticias.css">
 
-      
+<head>
+    <title>Crud categorias</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="estiloCrudNoticia.css">
+
+
 
     
-    <body>
+
+</head>
+
+
+<body>
     <div class="dropdown">
+
         <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
-            <?php echo $user['nombre']; ?>
+            usuario
         </button>
 
-        <div class="dropdown-menu " >
-            <a class="dropdown-item" href="pantallaCrudNoticias">Mantenimiento de noticias</a>
-            <a class="dropdown-item" href="#">Ingreso de una nueva noticia</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="pantallaCrudNoticias.php">Mantenimiento de noticias</a>
+            <a class="dropdown-item" href="pantallaIngresoNoticias.php">Ingreso de una nueva noticia</a>
             <a class="dropdown-item" href="dashboard.php">Mis noticias</a>
             <a class="dropdown-item" href="logout.php">Logout</a>
-           
+
         </div>
     </div>
-        
-            <div class=" container mt-5 ">
-                        <div class="col-md-8">
-                            <table class="table" >
-                                <thead  class="table-success table-striped" >
-                                    <tr>
-                                        <th hidden>Id</th>
-                                        <th>Nombres</th>
-                                        <th hidden>Rss</th>
-                                        <th>Categoria</th>
-                                        <th hidden>Usario</th>
-                                    </tr>
-                                </thead>
 
-                                <tbody>
-                                        <?php
-                                            while($row=mysqli_fetch_array($query)){
+    <div class=" container mt-5 ">
+        <div class="col-md-8">
+            <table class="table">
+                <thead class="table-success table-striped">
+                    <tr>
+                        <th hidden>Id</th>
+                        <th>Nombres</th>
+                        <th hidden>Rss</th>
+                        <th>Categoria</th>
+                        <th hidden>Usario</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                              while($row=mysqli_fetch_array($query)){
                                         ?>
-                                            <tr>
-                                                <th hidden><?php  echo $row['id_nue_noticas']?></th>
-                                                <th><?php  echo $row['nombre_noti']?></th>
-                                                <th hidden><?php  echo $row['url_rss']?></th>
-                                                <th><?php  echo $row['categoria_nom']?></th>
-                                                <th hidden><?php  echo $row['id_usuario']?></th>
-                                               
-                                        
-                                                <th><a href="pantallaActulizarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="eliminarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
-                                            </tr>
-                                        <?php 
+                    <tr>
+                        <th hidden><?php  echo $row['id_nue_noticas']?></th>
+                        <th><?php  echo $row['nombre_noti']?></th>
+                        <th hidden><?php  echo $row['url_rss']?></th>
+                        <th><?php  echo $row['categoria_nom']?></th>
+                        <th hidden><?php  echo $row['id_usuario']?></th>
+
+
+                        <th><a href="pantallaActulizarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>"
+                                class="btn btn-info">Editar</a></th>
+                        <th><a href="eliminarNoticia.php?id=<?php echo $row['id_nue_noticas'] ?>"
+                                class="btn btn-danger">Eliminar</a></th>
+                    </tr>
+                    <?php 
                                             }
                                         ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>  
-            </div>
-    </body>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+
 </html>
