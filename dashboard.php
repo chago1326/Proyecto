@@ -48,6 +48,7 @@ require('prueba.php');
             <button type="button" class="btn btn-success dropdown-toggle " data-toggle="dropdown">
                 <?php echo $user['nombre']; ?>
             </button>
+            
 
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="pantallaCrudNoticias.php">Mantenimiento de noticias</a>
@@ -91,12 +92,11 @@ require('prueba.php');
             </ul>
         </div>
     </nav>
-    <input hidden type="text" class="form-control mb-3" name="idCedula" 
-                value="<?php echo $user['id_cedula']; ?>">
+        
     <?php 
-    
-    $usuario = $_REQUEST['idCedula'];
-    mostrar($usuario);
+    $user =$user['id_cedula'];
+  
+    mostrar($user);
  } ?>
 
 
